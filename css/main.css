@@ -15,10 +15,9 @@ body {
   height: 100%;
 }
 
-.content {
+/* .content {
   width: 100%;
-  border-bottom: 1px solid #ccc;
-}
+} */
 
 .content .content-top {
   height: 43px;
@@ -32,10 +31,54 @@ body {
   background-color: #F3F3F3;
   color: red;
   font-size: 18px;
+  outline: none;
 }
 
 .content .content-mid {
   width: 100%;
+}
+
+.content .content-mid table {
+  width: 100%;
+  text-align: center;
+}
+
+.content .content-mid table th {
+  height: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.content .content-mid table td {
+  height: 36px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 8px;
+  padding-bottom: 15px;
+}
+
+.content .content-mid table td span {
+  height: 27px;
+  width: 28px;
+  padding-left: 1px;
+  padding-top: 4px;
+  display: block;
+}
+
+.content .content-mid table .click{
+  border-radius: 20px;
+  color: #fff;
+  background-color: #000;
+}
+
+.content .content-mid table .today {
+  border-radius: 20px;
+  color: #fff;
+  background-color: red;
+}
+
+.content .content-mid table .todays {
+  border-radius: 20px;
+  color: red;
+  background-color: #fff;
 }
 
 .content .content-bottom {
@@ -59,4 +102,5 @@ body {
   text-align: center;
   font-size: 20px;
   font-family: '微软雅黑';
+  outline: none;
 }

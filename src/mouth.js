@@ -1,4 +1,4 @@
-function getUi(top, mid, bottom) {
+function getMUi(top, mid, bottom) {
   let date = new Date()
   let dYear = date.getFullYear()
   let dMouth = date.getMonth() +1
@@ -21,6 +21,8 @@ function getUi(top, mid, bottom) {
   }
   // 生成 星期 、天
   let table = document.createElement('table')
+  table.setAttribute("cellspacing", "0")
+  table.setAttribute("id", "table")
   
   // 添加星期信息
   {
@@ -48,7 +50,7 @@ function getUi(top, mid, bottom) {
     }
 
     for (let i = 0; i * 7 < dayArr.length; i++) {
-      let tr = getTr(dayArr, i * 7, table)
+      let tr = getTr(dayArr, i * 7, table, dDay)
     }
     let midId = document.getElementById('content-mid')
     midId.appendChild(table)
@@ -59,15 +61,21 @@ function getUi(top, mid, bottom) {
 function getD (date, day) {
   let result = day - (date % 7 - 1)
   let re = result < 0 ? 7 + result : result
+  re === 7 ? re = 0 : re
   return re
 }
 
-function getTr (arr, count, table) {
+function getTr (arr, count, table, d) {
   let tr = document.createElement('tr')
   for (let i = count; i < arr.length; i++) {
     let td = document.createElement('td')
-    td.innerHTML = arr[i]
-    tr.appendChild(td)
+    if (d === arr[i]) {
+      td.innerHTML = '<span class="today">' + arr[i] + '</span>'
+      tr.appendChild(td)
+    } else {
+      td.innerHTML = "<span>" + arr[i] + "</span>"
+      tr.appendChild(td)
+    }
     if ((i + 1) % 7 === 0) {
       break
     }
